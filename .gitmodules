@@ -4,3 +4,6 @@
 [submodule "GramsReadout"]
 	path = GramsReadout
 	url = https://github.com/NevisNeutrinos/GramsReadout.git
+[submodule "grams-tof-library"]
+	path = grams-tof-library
+	url = git@github.com:kenichisakai-git/grams-tof-library.git
