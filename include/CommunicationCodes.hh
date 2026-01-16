@@ -6,14 +6,6 @@ constexpr uint16_t construct_code(uint16_t code, uint16_t subsystem_mask) {
   return code + subsystem_mask;
 }
 
-#ifndef PGRAMS_COM_CODE_PDU
-#define PGRAMS_COM_CODE_PDU(name, code)                          \
-  PDU_##name##_ON = construct_code(code, COM_SUBSYSTEM_PDU_MSK), \
-  PDU_##name##_OFF = construct_code(code + 0x1, COM_SUBSYSTEM_PDU_MSK)
-#else
-#error "PGRAMS_COM_CODE_PDU is already defined. Please ensure it is defined only once."
-#endif
-
 constexpr uint16_t COM_SUBSYSTEM_HUB_MSK = 0x1000;
 constexpr uint16_t COM_SUBSYSTEM_PDU_MSK = 0x2000;
 constexpr uint16_t COM_SUBSYSTEM_ORC_MSK = 0x3000;
