@@ -38,15 +38,13 @@ enum class CommunicationCodes : uint16_t {
   HUB_Dummy2 = construct_code(0xF2, COM_SUBSYSTEM_HUB_MSK),
 
   // PDU
-  PGRAMS_COM_CODE_PDU(Cold_TPC_HV, 0x0),
-  PGRAMS_COM_CODE_PDU(Cold_Charge_PreAmp, 0x2),
-  PGRAMS_COM_CODE_PDU(Cold_SiPM_PreAmp, 0x4),
-  PGRAMS_COM_CODE_PDU(Warm_TPC_Shaper, 0x6),
-  PGRAMS_COM_CODE_PDU(SiPM, 0x8),
-  PGRAMS_COM_CODE_PDU(CAEN_P3V3, 0xA),
-  PGRAMS_COM_CODE_PDU(CAEN_PM5V, 0xC),
-  PGRAMS_COM_CODE_PDU(CAEN_P12V, 0xE),
-  PGRAMS_COM_CODE_PDU(DAQ_CPU, 0x10),
+  PDU_SiPM0_VSET = construct_code(0x0, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM1_VSET = construct_code(0x1, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM2_VSET = construct_code(0x2, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM3_VSET = construct_code(0x3, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM4_VSET = construct_code(0x4, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM5_VSET = construct_code(0x5, COM_SUBSYSTEM_PDU_MSK),
+  PDU_PressureReg_VSET = construct_code(0x6, COM_SUBSYSTEM_PDU_MSK),
 
   // Orchestrator
   ORC_Exec_CPU_Restart = construct_code(0x0, COM_SUBSYSTEM_ORC_MSK),
