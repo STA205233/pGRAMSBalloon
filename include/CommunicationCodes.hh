@@ -20,6 +20,7 @@ constexpr uint16_t COM_SUBSYSTEM_ORC_MSK = 0x3000;
 constexpr uint16_t COM_SUBSYSTEM_COL_MSK = 0x4000; // Columbia readout
 constexpr uint16_t COM_SUBSYSTEM_TOF_MSK = 0x5000;
 constexpr uint16_t COM_SUBSYSTEM_TOF_BIAS_MSK = 0x6000;
+constexpr uint16_t COM_SUBSYSTEM_CMN_MSK = 0x7000; // Common commands
 constexpr uint16_t COM_SUBSYSTEM_MSK = 0xF000; // Mask for all subsystems
 
 enum class CommunicationCodes : uint16_t {
@@ -94,6 +95,8 @@ enum class CommunicationCodes : uint16_t {
   TOF_Bias_ON = construct_code(0x0, COM_SUBSYSTEM_TOF_BIAS_MSK),
   TOF_Bias_OFF = construct_code(0x1, COM_SUBSYSTEM_TOF_BIAS_MSK),
   TOF_Bias_Set_Voltage = construct_code(0x2, COM_SUBSYSTEM_TOF_BIAS_MSK),
+
+  CMN_Command_Error = construct_code(0x0, COM_SUBSYSTEM_CMN_MSK),
 
 };
 
