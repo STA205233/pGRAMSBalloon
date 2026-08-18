@@ -38,12 +38,14 @@ enum class CommunicationCodes : uint16_t {
   HUB_Set_Link = construct_code(0x5, COM_SUBSYSTEM_HUB_MSK),
   HUB_Dummy1 = construct_code(0xF1, COM_SUBSYSTEM_HUB_MSK),
   HUB_Dummy2 = construct_code(0xF2, COM_SUBSYSTEM_HUB_MSK),
-  HUB_DCDC_ON = construct_code(0x0, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  HUB_DCDC_OFF = construct_code(0x1, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  HUB_Set_Voltage = construct_code(0x2, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  HUB_Enable_Temp_Con = construct_code(0x3, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  HUB_Disable_Temp_Con = construct_code(0x4, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  HUB_Set_Default_Temp = construct_code(0x5, COM_SUBSYSTEM_TOF_BIAS_MSK),
+
+  // TOF bias
+  HUB_TB_Bias_On = construct_code(0x0, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  HUB_TB_Bias_Off = construct_code(0x1, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  HUB_TB_Set_V_Offset = construct_code(0x2, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  HUB_TB_Set_V_Def = construct_code(0x3, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  HUB_TB_Set_Tmux = construct_code(0x4, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  HUB_TB_Query_bias_info = construct_code(0x5, COM_SUBSYSTEM_TOF_BIAS_MSK),
 
   // PDU
   PGRAMS_COM_CODE_PDU(Cold_TPC_HV, 0x0),
@@ -69,6 +71,7 @@ enum class CommunicationCodes : uint16_t {
   PGRAMS_COM_CODE_PDU(SiPM_4, 0x21),
   PGRAMS_COM_CODE_PDU(SiPM_5, 0x23),
   PGRAMS_COM_CODE_PDU(Tof, 0x25),
+  PGRAMS_COM_CODE_PDU(TPC_HV, 0x27),
 
   // Orchestrator
   ORC_Exec_CPU_Restart = construct_code(0x0, COM_SUBSYSTEM_ORC_MSK),
@@ -124,7 +127,7 @@ enum class CommunicationCodes : uint16_t {
   TOF_Acquire_Threshold_Calibration_D = construct_code(0x10B, COM_SUBSYSTEM_TOF_MSK),
   TOF_Set_FEM_Power_Off = construct_code(0x10C, COM_SUBSYSTEM_TOF_MSK),
   TOF_Set_FEM_Power_On = construct_code(0x10D, COM_SUBSYSTEM_TOF_MSK),
-
+  
   TOF_Process_Threshold_Calibration = construct_code(0x200, COM_SUBSYSTEM_TOF_MSK),
   TOF_Process_TDC_Calibration = construct_code(0x201, COM_SUBSYSTEM_TOF_MSK),
   TOF_Process_QDC_Calibration = construct_code(0x202, COM_SUBSYSTEM_TOF_MSK),
@@ -165,7 +168,7 @@ inline bool is_pdu_enable_commands(uint16_t code) {
   else if (to_u16(CommunicationCodes::PDU_Cold_TPC_HV_ON) <= code && code <= to_u16(CommunicationCodes::PDU_DAQ_CPU_OFF)) {
     return true;
   }
-  else if (to_u16(CommunicationCodes::PDU_SiPM_0_ON) <= code && code <= to_u16(CommunicationCodes::PDU_Tof_OFF)) {
+  else if (to_u16(CommunicationCodes::PDU_SiPM_0_ON) <= code && code <= to_u16(CommunicationCodes::PDU_TPC_HV_OFF)) {
     return true;
   }
   return false;
@@ -173,6 +176,8 @@ inline bool is_pdu_enable_commands(uint16_t code) {
 
 enum class TelemetryCodes : uint16_t {
   HUB_Telemetry_Normal = construct_code(0x0, COM_SUBSYSTEM_HUB_MSK),
+  HUB_Tof_Bias_summary = construct_code(0x1, COM_SUBSYSTEM_HUB_MSK),
+  HUB_Tof_Bias_full = construct_code(0x2, COM_SUBSYSTEM_HUB_MSK),
   ORC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_ORC_MSK),
   TPC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_TPC_MSK),
   TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK)
