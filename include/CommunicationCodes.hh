@@ -111,10 +111,10 @@ enum class CommunicationCodes : uint16_t {
   TPCMonitor_Send_Full_Event_Data = construct_code(0xB, COM_SUBSYSTEM_TPCMonitor_MSK),
 
   // TOF
-  TOF_Start_DAQ = construct_code(0x0, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Stop_DAQ = construct_code(0x1, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Reset_DAQ = construct_code(0x2, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Reconnect_Network = construct_code(0x3, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Start_DAQ                        = construct_code(0x0, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Stop_DAQ                         = construct_code(0x1, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Reset_DAQ                        = construct_code(0x2, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Reconnect_Network                = construct_code(0x3, COM_SUBSYSTEM_TOF_MSK),
 
   TOF_Init_System                      = construct_code(0x100, COM_SUBSYSTEM_TOF_MSK),
   TOF_Make_Bias_Calib_Table            = construct_code(0x101, COM_SUBSYSTEM_TOF_MSK),
